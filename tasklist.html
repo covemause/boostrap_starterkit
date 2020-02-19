@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <title>Gridサンプル</title>
+  <!-- Bootstrap用 -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  <!-- Bootstrap用JavaScriptの読み込み -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+<body>
+  <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <div class="mb-0">
+        <a class="text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+          <span class="glyphicon glyphicon-th-list"></span>検索条件
+        </a>
+      </div>
+    </div>
+    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <form>
+          <div class="form-row">
+            <div class="input-group p-1">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Eメール</span>
+              </div>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Eメール">
+            </div>
+            <div class="input-group p-1">
+              <div class="input-group-prepend">
+                <span class="input-group-text">パスワード</span>
+              </div>
+              <input type="password" class="form-control" id="inputPassword4" placeholder="パスワード">
+            </div>
+          
+            <div class="input-group p-1">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Column heading</span>
+              </div>
+              <input type="text" class="form-control" placeholder="..." aria-label="...">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">表示</button>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                保存する
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">抽出</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="table-responsive p-2">
+  <div class="row">
+    <div class="col-2"><button type="button" class="btn btn-primary rounded-pill" data-toggle="modal" data-target="#EntryForm">＋</button></div>
+    <div class="col-10">
+      <nav aria-label="ページ送りの実例">
+        
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">前へ</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col">Column heading</th>
+          <th scope="col">Column heading</th>
+          <th scope="col">Column heading</th>
+          <th scope="col">Column heading</th>
+          <th scope="col">Column heading</th>
+          <th scope="col">Column heading</th>
+          <th scope="col">Column heading</th>
+          <th scope="col">Column heading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active">
+          <th scope="row">Active</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <th scope="row">Default</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="table-primary">
+          <th scope="row">Primary</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="table-secondary">
+          <th scope="row">Secondary</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="table-success">
+          <th scope="row">Success</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="table-danger">
+          <th scope="row">Danger</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Warning</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="table-info">
+          <th scope="row">Info</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="table-light">
+          <th scope="row">Light</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+      </tr>
+        <tr class="table-dark">
+          <th scope="row">Dark</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+      </tbody>
+  </table>
+  <div class="row">
+    <div class="col-2"><button type="button" class="btn btn-primary rounded-pill" data-toggle="modal" data-target="#EntryForm">＋</button></div>
+    <div class="col-10">
+      <nav aria-label="ページ送りの実例">
+        
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">前へ</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- モーダルの設定 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">モーダルのタイトル</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>モーダルのコンテンツ文。</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <button type="button" class="btn btn-primary">変更を保存</button>
+      </div><!-- /.modal-footer -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- モーダルの設定 -->
+<div class="modal fade" id="EntryForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">モーダルのタイトル</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">登録</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

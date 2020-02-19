@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <title>サンプル</title>
+  <!-- Bootstrap用CSSの読み込み -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+  <!-- Bootstrap用JavaScriptの読み込み -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./LoginFormPanel.css" />
+</head>
+<body>
+	<div class="login-body col-12">
+		<article class="container-login center-block">
+<main class="p-3">
+  <!-- 4個分のタブ -->
+  <ul class="nav nav-tabs nav-justified">
+    <li class="nav-item">
+      <a href="#login-access" class="nav-link active" data-toggle="tab">Login</a>
+    </li>
+    <li class="nav-item">
+		<a href="#signup-access" class="nav-link" data-toggle="tab">Sign Up</a>
+	</li>
+	<li class="nav-item">
+	<a href="#password-access" class="nav-link" data-toggle="tab">Reset Password</a>
+	</li>
+  </ul>
+
+  <!-- 写真部分 -->
+  <div class="tab-content">
+    <div id="login-access" class="tab-pane active p-2">
+		<h2><i class="glyphicon glyphicon-log-in"></i> Login</h2>
+		<form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
+			<div class="form-group ">
+				<label for="login" class="sr-only">Email</label>
+					<input type="text" class="form-control" name="login" id="login_value" 
+						placeholder="Email" tabindex="1" value="" />
+			</div>
+			<div class="form-group ">
+				<label for="password" class="sr-only">Password</label>
+					<input type="password" class="form-control" name="password" id="password"
+						placeholder="Password" value="" tabindex="2" />
+			</div>
+			<div class="checkbox">
+					<label class="control-label" for="remember_me">
+						<input type="checkbox" name="remember_me" id="remember_me" value="1" class="" tabindex="3" /> Remember me
+					</label>
+			</div>
+			<br/>
+			<div class="form-group ">				
+					<button type="submit" name="log-me-in" id="submit" tabindex="5" class="btn btn-lg btn-primary">Login</button>
+			</div>
+		</form>	
+	</div>
+	<div id="signup-access" class="tab-pane p-2">
+		<h2><i class="glyphicon glyphicon-lock"></i> Sign Up</h2>
+		<form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
+			<div class="form-group ">
+				<label for="login" class="sr-only">Email</label>
+					<input type="text" class="form-control" name="login" id="login_value" 
+						placeholder="Email" tabindex="1" value="" />
+			</div>
+			<div class="form-group ">
+				<label for="password" class="sr-only">Password</label>
+					<input type="password" class="form-control" name="password" id="password"
+						placeholder="Password" value="" tabindex="2" />
+			</div>
+			<div class="form-group ">
+				<label for="password" class="sr-only">Confirm Password</label>
+					<input type="password" class="form-control" name="password" id="password"
+						placeholder="Confirm Password" value="" tabindex="3" />
+			</div>
+			<br/>
+			<div class="form-group ">				
+					<button type="submit" name="log-me-in" id="submit" tabindex="5" class="btn btn-lg btn-primary">Sign Up</button>
+			</div>
+		</form>	
+	</div>
+    <div id="password-access" class="tab-pane p-2">
+		<h2><i class="glyphicon glyphicon-lock"></i> Reset Password </h2>
+		<form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
+			<div class="form-group">
+				<label type="text" class="sr-only" for="password-reset">Email Address</label>
+				<input name="password-reset" id="password-reset" class="form-control" placeholder="Email Address" value="" tabindex="6">
+			</div>
+			<div class="form-group">
+				<button type="submit" name="password-reset-button" id="submit" tabindex="7" class="btn btn-lg btn-success">Reset</button>
+			</div>
+		</form>
+    </div>
+
+  </div>
+</main>
+</article>
+</div>
+</body>
+</html>
