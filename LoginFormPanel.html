@@ -13,81 +13,65 @@
   <link rel="stylesheet" href="./LoginFormPanel.css" />
 </head>
 <body>
+  <!-- 言語選択コンボボックス 右上配置 -->
+  <div style="position: absolute; top: 10px; right: 20px; z-index: 1000;">
+    <select id="lang-select" class="form-control form-control-sm">
+      <option value="ja">日本語</option>
+      <option value="en">English</option>
+    </select>
+  </div>
 	<div class="login-body col-12">
 		<article class="container-login center-block">
 <main class="p-3">
   <!-- 4個分のタブ -->
   <ul class="nav nav-tabs nav-justified">
     <li class="nav-item">
-      <a href="#login-access" class="nav-link active" data-toggle="tab">Login</a>
+      <a href="#login-access" class="nav-link active" data-toggle="tab" id="tab-login">ログイン</a>
     </li>
-    <li class="nav-item">
-		<a href="#signup-access" class="nav-link" data-toggle="tab">Sign Up</a>
-	</li>
 	<li class="nav-item">
-	<a href="#password-access" class="nav-link" data-toggle="tab">Reset Password</a>
+	<a href="#password-access" class="nav-link" data-toggle="tab" id="tab-reset">パスワードリセット</a>
 	</li>
   </ul>
 
   <!-- 写真部分 -->
   <div class="tab-content">
     <div id="login-access" class="tab-pane active p-2">
-		<h2><i class="glyphicon glyphicon-log-in"></i> Login</h2>
+		<h2 id="login-title"><i class="glyphicon glyphicon-log-in"></i> ログイン</h2>
 		<form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
 			<div class="form-group ">
-				<label for="login" class="sr-only">Email</label>
+				<label for="login" class="sr-only" id="login-label-email">メールアドレス</label>
 					<input type="text" class="form-control" name="login" id="login_value" 
-						placeholder="Email" tabindex="1" value="" />
+						placeholder="メールアドレス" tabindex="1" value="" />
 			</div>
 			<div class="form-group ">
-				<label for="password" class="sr-only">Password</label>
+				<label for="password" class="sr-only" id="login-label-password">パスワード</label>
 					<input type="password" class="form-control" name="password" id="password"
-						placeholder="Password" value="" tabindex="2" />
+						placeholder="パスワード" value="" tabindex="2" />
 			</div>
 			<div class="checkbox">
-					<label class="control-label" for="remember_me">
-						<input type="checkbox" name="remember_me" id="remember_me" value="1" class="" tabindex="3" /> Remember me
+					<label class="control-label" for="remember_me" id="login-label-remember">
+						<input type="checkbox" name="remember_me" id="remember_me" value="1" class="" tabindex="3" /> ログイン情報を記憶する
 					</label>
 			</div>
 			<br/>
 			<div class="form-group ">				
-					<button type="submit" name="log-me-in" id="submit" tabindex="5" class="btn btn-lg btn-primary">Login</button>
+					<button type="submit" name="log-me-in" id="login-btn" tabindex="5" class="btn btn-lg btn-primary">ログイン</button>
 			</div>
 		</form>	
-	</div>
-	<div id="signup-access" class="tab-pane p-2">
-		<h2><i class="glyphicon glyphicon-lock"></i> Sign Up</h2>
-		<form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
-			<div class="form-group ">
-				<label for="login" class="sr-only">Email</label>
-					<input type="text" class="form-control" name="login" id="login_value" 
-						placeholder="Email" tabindex="1" value="" />
-			</div>
-			<div class="form-group ">
-				<label for="password" class="sr-only">Password</label>
-					<input type="password" class="form-control" name="password" id="password"
-						placeholder="Password" value="" tabindex="2" />
-			</div>
-			<div class="form-group ">
-				<label for="password" class="sr-only">Confirm Password</label>
-					<input type="password" class="form-control" name="password" id="password"
-						placeholder="Confirm Password" value="" tabindex="3" />
-			</div>
-			<br/>
-			<div class="form-group ">				
-					<button type="submit" name="log-me-in" id="submit" tabindex="5" class="btn btn-lg btn-primary">Sign Up</button>
-			</div>
-		</form>	
+		<!-- 仮ログイン情報の表示 -->
+		<div class="alert alert-info mt-3" id="login-demo-info">
+		  メールアドレス：test@gmail.com<br>パスワード：testでログイン可能
+		</div>
 	</div>
     <div id="password-access" class="tab-pane p-2">
-		<h2><i class="glyphicon glyphicon-lock"></i> Reset Password </h2>
+		<h2 id="reset-title"><i class="glyphicon glyphicon-lock"></i> パスワードリセット</h2>
 		<form method="post" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
 			<div class="form-group">
-				<label type="text" class="sr-only" for="password-reset">Email Address</label>
-				<input name="password-reset" id="password-reset" class="form-control" placeholder="Email Address" value="" tabindex="6">
+				<label type="text" class="sr-only" for="password-reset" id="reset-label-email">メールアドレス</label>
+				<input name="password-reset" id="password-reset" class="form-control" placeholder="メールアドレス" value="" tabindex="6">
 			</div>
 			<div class="form-group">
-				<button type="submit" name="password-reset-button" id="submit" tabindex="7" class="btn btn-lg btn-success">Reset</button>
+				<button type="submit" name="password-reset-button" id="reset-btn" tabindex="7" class="btn btn-lg btn-success">リセット</button>
 			</div>
 		</form>
     </div>
@@ -96,5 +80,104 @@
 </main>
 </article>
 </div>
+<!-- 言語切り替え用スクリプト -->
+<script>
+const translations = {
+  ja: {
+    'tab-login': 'ログイン',
+    'tab-reset': 'パスワードリセット',
+    'login-title': 'ログイン',
+    'login-label-email': 'メールアドレス',
+    'login-label-password': 'パスワード',
+    'login-label-remember': 'ログイン情報を記憶する',
+    'login-btn': 'ログイン',
+    'reset-title': 'パスワードリセット',
+    'reset-label-email': 'メールアドレス',
+    'reset-btn': 'リセット',
+    'login_value': 'メールアドレス',
+    'password': 'パスワード',
+    'password-reset': 'メールアドレス',
+    'lang-ja': '日本語',
+    'lang-en': '英語',
+    'login-error': 'メールアドレスまたはパスワードが正しくありません。',
+  },
+  en: {
+    'tab-login': 'Login',
+    'tab-reset': 'Reset Password',
+    'login-title': 'Login',
+    'login-label-email': 'Email',
+    'login-label-password': 'Password',
+    'login-label-remember': 'Remember me',
+    'login-btn': 'Login',
+    'reset-title': 'Reset Password',
+    'reset-label-email': 'Email Address',
+    'reset-btn': 'Reset',
+    'login_value': 'Email',
+    'password': 'Password',
+    'password-reset': 'Email Address',
+    'lang-ja': 'japanese',
+    'lang-en': 'English',
+    'login-error': 'Incorrect email or password.',
+  }
+};
+
+function setLanguage(lang) {
+  const t = translations[lang];
+  // タブと見出し
+  document.getElementById('tab-login').textContent = t['tab-login'];
+  document.getElementById('tab-reset').textContent = t['tab-reset'];
+  document.getElementById('login-title').innerHTML = '<i class="glyphicon glyphicon-log-in"></i> ' + t['login-title'];
+  document.getElementById('reset-title').innerHTML = '<i class="glyphicon glyphicon-lock"></i> ' + t['reset-title'];
+  // ラベル
+  document.getElementById('login-label-email').textContent = t['login-label-email'];
+  document.getElementById('login-label-password').textContent = t['login-label-password'];
+  document.getElementById('login-label-remember').lastChild.textContent = ' ' + t['login-label-remember'];
+  document.getElementById('reset-label-email').textContent = t['reset-label-email'];
+  // ボタン
+  document.getElementById('login-btn').textContent = t['login-btn'];
+  document.getElementById('reset-btn').textContent = t['reset-btn'];
+  // プレースホルダー
+  document.getElementById('login_value').placeholder = t['login_value'];
+  document.getElementById('password').placeholder = t['password'];
+  document.getElementById('password-reset').placeholder = t['password-reset'];
+  // コンボボックスの表示も切り替え
+  const langSelect = document.getElementById('lang-select');
+  langSelect.options[0].text = t['lang-ja'];
+  langSelect.options[1].text = t['lang-en'];
+  // エラーメッセージも切り替え
+  const err = document.getElementById('login-error-msg');
+  if (err) err.textContent = t['login-error'];
+}
+
+document.getElementById('lang-select').addEventListener('change', function(e) {
+  setLanguage(e.target.value);
+});
+// 初期表示
+setLanguage('ja');
+
+// ログインバリデーション・遷移処理
+const loginForm = document.querySelector('#login-access form');
+if (loginForm) {
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('login_value').value.trim();
+    const pass = document.getElementById('password').value;
+    const lang = document.getElementById('lang-select').value;
+    // 仮データ
+    if (email === 'test@gmail.com' && pass === 'test') {
+      window.location.href = 'MainPanel.html';
+    } else {
+      let err = document.getElementById('login-error-msg');
+      if (!err) {
+        err = document.createElement('div');
+        err.id = 'login-error-msg';
+        err.className = 'alert alert-danger mt-2';
+        document.querySelector('#login-access form').prepend(err);
+      }
+      err.textContent = translations[lang]['login-error'];
+    }
+  });
+}
+</script>
 </body>
 </html>

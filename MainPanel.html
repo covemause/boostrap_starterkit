@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <title>メイン画面</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body { background: #f8f9fa; }
+    .sidebar {
+      height: 100vh;
+      background: #6f42c1;
+      color: #fff;
+      padding-top: 30px;
+    }
+    .sidebar .nav-link {
+      color: #fff;
+      font-weight: 500;
+    }
+    .sidebar .nav-link.active, .sidebar .nav-link:hover {
+      background: #5a32a3;
+      color: #fff;
+    }
+    .main-content {
+      background: #fff;
+      min-height: 100vh;
+      padding: 32px 24px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 言語選択コンボボックス 右上配置 -->
+  <div style="position: absolute; top: 10px; right: 20px; z-index: 1000;">
+    <select id="lang-select" class="form-control form-control-sm">
+      <option value="ja">日本語</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- サイドバー 2/10 -->
+      <nav class="col-md-2 sidebar">
+        <ul class="nav flex-column" id="sidebar-menu">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" data-content="dashboard" id="menu-dashboard">ダッシュボード</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-content="profile" id="menu-profile">プロフィール</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-content="settings" id="menu-settings">設定</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- メインコンテンツ 8/10 -->
+      <main class="col-md-10 main-content">
+        <div id="content-dashboard">
+          <h2 id="dashboard-title">ダッシュボード</h2>
+          <p id="dashboard-desc">ここはダッシュボードです。</p>
+        </div>
+        <div id="content-profile" style="display:none;">
+          <h2 id="profile-title">プロフィール</h2>
+          <p id="profile-desc">ここはプロフィール画面です。</p>
+        </div>
+        <div id="content-settings" style="display:none;">
+          <h2 id="settings-title">設定</h2>
+          <p id="settings-desc">ここは設定画面です。</p>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script>
+    // サイドバーのメニュークリックで内容切り替え
+    document.querySelectorAll('#sidebar-menu .nav-link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('#sidebar-menu .nav-link').forEach(function(l) { l.classList.remove('active'); });
+        link.classList.add('active');
+        // 全コンテンツ非表示
+        document.getElementById('content-dashboard').style.display = 'none';
+        document.getElementById('content-profile').style.display = 'none';
+        document.getElementById('content-settings').style.display = 'none';
+        // 選択コンテンツ表示
+        document.getElementById('content-' + link.dataset.content).style.display = '';
+      });
+    });
+    // 多言語対応
+    const translations = {
+      ja: {
+        'menu-dashboard': 'ダッシュボード',
+        'menu-profile': 'プロフィール',
+        'menu-settings': '設定',
+        'dashboard-title': 'ダッシュボード',
+        'dashboard-desc': 'ここはダッシュボードです。',
+        'profile-title': 'プロフィール',
+        'profile-desc': 'ここはプロフィール画面です。',
+        'settings-title': '設定',
+        'settings-desc': 'ここは設定画面です。',
+        'lang-ja': '日本語',
+        'lang-en': '英語',
+      },
+      en: {
+        'menu-dashboard': 'Dashboard',
+        'menu-profile': 'Profile',
+        'menu-settings': 'Settings',
+        'dashboard-title': 'Dashboard',
+        'dashboard-desc': 'This is the dashboard.',
+        'profile-title': 'Profile',
+        'profile-desc': 'This is the profile page.',
+        'settings-title': 'Settings',
+        'settings-desc': 'This is the settings page.',
+        'lang-ja': 'japanese',
+        'lang-en': 'English',
+      }
+    };
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('menu-dashboard').textContent = t['menu-dashboard'];
+      document.getElementById('menu-profile').textContent = t['menu-profile'];
+      document.getElementById('menu-settings').textContent = t['menu-settings'];
+      document.getElementById('dashboard-title').textContent = t['dashboard-title'];
+      document.getElementById('dashboard-desc').textContent = t['dashboard-desc'];
+      document.getElementById('profile-title').textContent = t['profile-title'];
+      document.getElementById('profile-desc').textContent = t['profile-desc'];
+      document.getElementById('settings-title').textContent = t['settings-title'];
+      document.getElementById('settings-desc').textContent = t['settings-desc'];
+      // コンボボックスの表示も切り替え
+      const langSelect = document.getElementById('lang-select');
+      langSelect.options[0].text = t['lang-ja'];
+      langSelect.options[1].text = t['lang-en'];
+    }
+    document.getElementById('lang-select').addEventListener('change', function(e) {
+      setLanguage(e.target.value);
+    });
+    setLanguage('ja');
+  </script>
+</body>
+</html> 

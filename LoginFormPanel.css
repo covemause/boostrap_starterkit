@@ -21,7 +21,7 @@ body {
     margin-right: auto;
 }
 .container-login h2 {
-    color: #ff8c00;
+    color: #6f42c1;
 }
 .form-control {
     background-color: #ffffff;
@@ -42,8 +42,8 @@ body {
     margin-top: -15px;
 }
 .container-login button {
-    background-color: #ff8c00;
-    border-color: #d88117;
+    background-color: #6f42c1;
+    border-color: #5a32a3;
     color: #ffffff;
     border-radius: 0;
     font-size: 18px;
@@ -53,6 +53,6 @@ body {
 }
 .container-login button:hover,
 .container-login button:focus {
-    background: #de2f18;
-    border-color: #be2815;
+    background: #5a32a3;
+    border-color: #4a2a8a;
 }
